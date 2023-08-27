@@ -1,21 +1,17 @@
-const express = require('express');
-const app = express();
-
-// Middleware to parse JSON bodies
-app.use(express.json());
+const http = require('http');
 
 // Variable to control response delay (in milliseconds)
 let responseDelayMin = 0;
 let responseDelayMax = 0;
 
 // Set the maximum and minimum response delay values
-responseDelayMin = 1000; // Minimum delay in milliseconds
-responseDelayMax = 5000; // Maximum delay in milliseconds
+responseDelayMin = 500; // Minimum delay in milliseconds
+responseDelayMax = 1000; // Maximum delay in milliseconds
 
-// POST endpoint
-app.post('/hello', (req, res) => {
-    // Extract parameters from the request body (if provided)
-    const name = req.body.name || 'World';
+// Create an HTTP server
+const server = http.createServer((req, res) => {
+    // Extract query parameter from the URL
+    const name = req.url.includes('?myVariable=') ? req.url.split('=')[1] : 'World';
 
     // Generate a random delay within the specified range
     const randomDelay = Math.random() * (responseDelayMax - responseDelayMin) + responseDelayMin;
@@ -23,12 +19,13 @@ app.post('/hello', (req, res) => {
     // Set the response delay and send the response
     setTimeout(() => {
         const response = `Hello, ${name}! Response delayed by ${randomDelay.toFixed(2)} milliseconds.`;
-        res.send(response);
+        res.writeHead(200, { 'Content-Type': 'text/plain' });
+        res.end(response);
     }, randomDelay);
 });
 
 // Start the server
 const port = 1234;
-app.listen(port, () => {
+server.listen(port, () => {
     console.log(`Server is listening on port ${port}`);
 });

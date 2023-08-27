@@ -7,13 +7,13 @@ This repo is divided in some sections that will be used for the workshop.
 - WebService
 - Software needed
 
-Examples:
+## Examples
 There is an example directory with jmeter and k6 scripts.
 
-WebService:
+## WebService
 It contains the services that will be used during the workshop
 
-Software needed:
+## Software needed
 The workshop will require us to have some software. In this directory you will find some instructions to get it and set it up to be used in the workshop.
 Some of the software we will use is
 - Grafana
@@ -22,4 +22,6 @@ Some of the software we will use is
 - InfluxDB
 - Prometheus
 - Jenkins
+
+
 Please make sure to come to the workshop day with all the software installed.
