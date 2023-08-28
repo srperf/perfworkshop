@@ -21,4 +21,4 @@ During the exercise we will update the port and the duration of the response tim
 Additionally we will do some exercises sending parameters.
 It will be received through a variable called myVariable. Whatever is sent in this variable will be posted in the response.
 
-http://localhost:3000/?myVariable=Hola
+http://localhost:1234/?myVariable=Hola
