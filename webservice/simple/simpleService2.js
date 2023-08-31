@@ -1,8 +1,6 @@
-const express = require('express');
-const app = express();
-
-// Middleware to parse JSON bodies
-app.use(express.json());
+const http = require('http');
+const url = require('url');
+const querystring = require('querystring');
 
 // Variable to control response delay (in milliseconds)
 let responseDelayMin = 0;
@@ -12,38 +10,42 @@ let responseDelayMax = 0;
 responseDelayMin = 1000; // Minimum delay in milliseconds
 responseDelayMax = 5000; // Maximum delay in milliseconds
 
-// POST endpoint
-app.post('/hello', (req, res) => {
-    // Extract parameters from the request body (if provided)
-    const name = req.body.myVariable || 'World'; // Change to myVariable
+const server = http.createServer((req, res) => {
+    const parsedUrl = url.parse(req.url);
+    const query = querystring.parse(parsedUrl.query);
+    const myVariable = query.myVariable || 'World';
 
-    // Generate a random delay within the specified range
-    const randomDelay = Math.random() * (responseDelayMax - responseDelayMin) + responseDelayMin;
-
-    // Set the response delay and send the response
-    setTimeout(() => {
-        const response = `Hello, ${name}! Response delayed by ${randomDelay.toFixed(2)} milliseconds.`;
-        res.send(response);
-    }, randomDelay);
+    if (req.method === 'GET' && parsedUrl.pathname === '/hello') {
+        handleRequest(res, myVariable);
+    } else if (req.method === 'POST' && parsedUrl.pathname === '/hello') {
+        let body = '';
+        
+        req.on('data', chunk => {
+            body += chunk.toString();
+        });
+        
+        req.on('end', () => {
+            const postQuery = querystring.parse(body);
+            const postMyVariable = postQuery.myVariable || 'World';
+            handleRequest(res, postMyVariable);
+        });
+    } else {
+        res.writeHead(404, { 'Content-Type': 'text/plain' });
+        res.end('Not Found');
+    }
 });
 
-// GET endpoint
-app.get('/hello', (req, res) => {
-    // Extract parameters from the query string (if provided)
-    const name = req.query.myVariable || 'World'; // Change to myVariable
-
-    // Generate a random delay within the specified range
+function handleRequest(res, myVariable) {
     const randomDelay = Math.random() * (responseDelayMax - responseDelayMin) + responseDelayMin;
 
-    // Set the response delay and send the response
     setTimeout(() => {
-        const response = `Hello, ${name}! Response delayed by ${randomDelay.toFixed(2)} milliseconds.`;
-        res.send(response);
+        const response = `Hello, ${myVariable}! Response delayed by ${randomDelay.toFixed(2)} milliseconds.`;
+        res.writeHead(200, { 'Content-Type': 'text/plain' });
+        res.end(response);
     }, randomDelay);
-});
+}
 
-// Start the server
 const port = 1234;
-app.listen(port, () => {
+server.listen(port, () => {
     console.log(`Server is listening on port ${port}`);
 });
