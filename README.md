@@ -16,6 +16,7 @@ It contains the services that will be used during the workshop
 ## Software needed
 The workshop will require us to have some software. In this directory you will find some instructions to get it and set it up to be used in the workshop.
 Some of the software we will use is
+- NodeJs
 - Grafana
 - jmeter
 - k6
