@@ -5,7 +5,7 @@ This is a really simple ans straight forward service that we will use in our aou
 To run it you will need to have Node installed.
 Go to https://nodejs.org/en/download and install node.
 
-Then go to the folder of this service and run:
+Then go to the folder where the webservice files are located (perworkshop/webservice/simple) and type:
 ```bash
 node simpleService.js
 ```
