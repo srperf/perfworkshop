@@ -35,8 +35,8 @@ RUN docker run -d --name=influxdb -p 8086:8086 influxdb:1.8
 During the workshop we will be doind some cool things with Influx.
 As an example you can do queries from just a browser.
 Examples:
-- http://localhost:8086/query?db=k6&q=SELECT * FROM measures
+- http://localhost:8086/query?db=k6&q=SELECT * FROM http_req_duration
 - http://localhost:8086/query?db=jmeter&q=SELECT * FROM measures
-- http://localhost:8086/query?db=k6&pretty=true&q=SELECT * FROM measures
+- http://localhost:8086/query?db=k6&pretty=true&q=SELECT * FROM http_req_duration
 
 You can also insert data in a similar way. Although for complex elements it requires some json and other formats for the post.
