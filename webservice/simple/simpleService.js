@@ -49,3 +49,8 @@ const port = 1234;
 server.listen(port, () => {
     console.log(`Server is listening on port ${port}`);
 });
+
+process.on('SIGTERM', () => {
+    // Cleanup tasks
+    process.exit(0);
+  });
