@@ -3,9 +3,9 @@ Repo for the Modern Performance Workshop
 
 This repo is divided in some sections that will be used for the workshop.
 
-- Examples
-- WebService
-- Software needed
+- [Examples](./examples/README.MD)
+- [WebService](./webservice/README.md)
+- [Software needed](./software/README.md)
 
 ## Examples
 There is an example directory with jmeter and k6 scripts.

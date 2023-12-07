@@ -1,2 +1,4 @@
 # Getting Prometheus
-We are not giving examples on Prometheus yet.
+There are two options presented here on how to get prometheus.
+## Through a [docker container](./Docker/README.md)
+## Downloading [binaries and executing them](./Binaries/README.md)
