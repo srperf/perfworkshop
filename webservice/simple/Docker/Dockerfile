@@ -5,5 +5,5 @@ FROM node:alpine
 EXPOSE 1234
 EXPOSE 1235
 
-CMD wget https://github.com/srperf/perfworkshop/raw/main/webservice/simple/simpleService.js && \
+CMD wget https://github.com/srperf/perfworkshop/raw/main/webservice/simple/simpleService.js -O simpleService.js && \
     node ./simpleService.js
