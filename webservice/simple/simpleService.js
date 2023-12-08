@@ -7,8 +7,8 @@ let responseDelayMin = 0;
 let responseDelayMax = 0;
 
 // Set the maximum and minimum response delay values
-responseDelayMin = 10000; // Minimum delay in milliseconds
-responseDelayMax = 50000; // Maximum delay in milliseconds
+responseDelayMin = 1000; // Minimum delay in milliseconds
+responseDelayMax = 5000; // Maximum delay in milliseconds
 
 const server = http.createServer((req, res) => {
     const parsedUrl = url.parse(req.url);
