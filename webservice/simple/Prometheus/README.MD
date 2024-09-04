@@ -1,0 +1,1 @@
+# Simple service instrumented with Prom Cli

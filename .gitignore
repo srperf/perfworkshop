@@ -1,0 +1,10 @@
+# Ignore node_modules folders across the entire repository
+node_modules/
+
+#Ignore freaking Mac DS Store
+.DS_Store
+
+# Ignore other potentially large or unnecessary files
+dist/
+build/
+*.log
