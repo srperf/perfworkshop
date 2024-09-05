@@ -7,7 +7,7 @@ This section will guide you through the steps needed to observ utomatically your
 Once you are in this folder (perfworkshop/webservice/simple/Prometheus) you must execute the following command to get the prometheus client for node.
 
 ```
-npm install prom-client
+npm install prom-client axios
 ```
 
 ## Starting the instrumented service
