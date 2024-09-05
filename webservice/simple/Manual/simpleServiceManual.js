@@ -1,6 +1,7 @@
 const http = require('http');
 const url = require('url');
 const querystring = require('querystring');
+const { sendDataToInflux } = require('./instrument'); // Ensure the path is correct
 
 // Variable to control response delay (in milliseconds)
 let responseDelayMin = 0;
@@ -36,12 +37,17 @@ const server = http.createServer((req, res) => {
 });
 
 function handleRequest(res, myVariable) {
+    const startTime = Date.now();
     const randomDelay = Math.random() * (responseDelayMax - responseDelayMin) + responseDelayMin;
-
     setTimeout(() => {
         const response = `Hello, ${myVariable}! Response delayed by ${randomDelay.toFixed(2)} milliseconds.`;
         res.writeHead(200, { 'Content-Type': 'text/plain' });
         res.end(response);
+        // Capture end time and calculate duration
+        const duration = Date.now() - startTime;
+        
+        // Send duration to InfluxDB
+        sendDataToInflux(duration);
     }, randomDelay);
 }
 
