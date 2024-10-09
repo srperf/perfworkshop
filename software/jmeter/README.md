@@ -10,4 +10,5 @@ Note: You need JVM or JDK installed to run JMeter.
 ## Steps
 - Download the Binary in the zip file.
 - Unzip the content in your defined folder
+- Go to the 'bin' folder
 - run the command ./jmeter to open JMeter (Note: You need JVM)
