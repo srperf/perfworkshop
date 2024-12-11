@@ -22,7 +22,6 @@ Some of the software we will use is
 - k6
 - InfluxDB
 - Prometheus
-- Jenkins
 
 
 Please make sure to come to the workshop day with all the software installed.
