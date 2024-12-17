@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../public/style.css">
+    <title>About</title>
+</head>
+<body>
+    <h1>About Us</h1>
+    <p>This is the about page.</p>
+    <a href="/">Home</a>
+    <script>
+        // Function to send metrics to InfluxDB
+        async function sendMetricToInfluxDB(loadTime) {
+            // Replace with your InfluxDB endpoint
+            const influxDBUrl = 'http://localhost:8086/write?db=perfWS';
+
+            // Format the metric data in line protocol
+            const metric = `page_load,page=about load_time=${loadTime}`;
+
+            try {
+                const response = await fetch(influxDBUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'text/plain'
+                    },
+                    body: metric
+                });
+
+                if (!response.ok) {
+                    console.error('Failed to send metric to InfluxDB:', response.statusText);
+                } else {
+                    console.log('Metric sent successfully to InfluxDB');
+                }
+            } catch (error) {
+                console.error('Error while sending metric to InfluxDB:', error);
+            }
+        }
+
+        // Measure page load time and send metric
+        window.addEventListener('load', () => {
+            const loadTime = performance.timing.domContentLoadedEventEnd - performance.timing.navigationStart;
+            console.log(`Page load time: ${loadTime} ms`);
+            sendMetricToInfluxDB(loadTime);
+        });
+    </script>
+</body>
+</html>
