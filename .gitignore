@@ -8,3 +8,15 @@ node_modules/
 dist/
 build/
 *.log
+
+# Ignore lock files (optional, but useful for avoiding conflicts)
+package-lock.json
+package.json
+pnpm-lock.yaml
+yarn.lock
+
+# Ignore npm debug logs
+npm-debug.log*
+
+# Ignore environment variables or other sensitive files (if applicable)
+.env
