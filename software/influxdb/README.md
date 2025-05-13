@@ -3,9 +3,11 @@
 There are some steps needed to download and get InfluxDB running.
 
 ## Downloading InfluxDB
-Go to https://portal.influxdata.com/downloads/
+Go to https://www.influxdata.com/downloads/
 
-Select the OSS version InfluxDB 1.8
+Select the OSS version InfluxDB 1.x and download the binaries for your OS.
+
+** AVOID INSTALLERS OR VERSIONS 2 or 3!!!!!!!!!**
 
 ## Configure InfluxDB
 InfluxDB requieres some config steps to work precisely as we want.
