@@ -7,7 +7,7 @@ Go to https://www.influxdata.com/downloads/
 
 Select the OSS version InfluxDB 1.x and download the binaries for your OS.
 
-** AVOID INSTALLERS OR VERSIONS 2 or 3!!!!!!!!!**
+**AVOID INSTALLERS OR VERSIONS 2 or 3!!!!!!!!!**
 
 ## Configure InfluxDB
 InfluxDB requieres some config steps to work precisely as we want.
