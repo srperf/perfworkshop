@@ -20,7 +20,7 @@ Some of the software we will use is
 - Grafana
 - jmeter
 - k6
-- InfluxDB
+- [InfluxDB OSS 1.x](https://www.influxdata.com/downloads/) (**PLEASE DOWNLOAD v1.X binaries**)
 - Prometheus
 
 
