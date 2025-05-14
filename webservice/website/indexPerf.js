@@ -56,9 +56,9 @@ const homePage = `
     <button onclick="showAlert()">Click me</button>
 
     <h2>2. Form Submission</h2>
-    <form onsubmit="event.preventDefault(); submitForm();">
-        <input type="text" id="formInput" placeholder="Type something">
-        <button type="submit">Submit Form</button>
+    <form onsubmit="event.preventDefault(); submitForm();" data-testid="test-form">
+        <input type="text" id="formInput" data-testid="form-input" placeholder="Type something">
+        <button type="submit" data-testid="submit-button">Submit Form</button>
     </form>
 
     <h2>3. Hidden Element</h2>
@@ -112,8 +112,8 @@ const resultPage = (userInput) => `
 </head>
 <body>
     <h1>Submission Received</h1>
-    <p>You entered: <strong>${userInput}</strong></p>
-    <a href="/">Go Back to Main Page</a>
+    <p data-testid="result-text">You entered: <strong>${userInput}</strong></p>
+    <a href="/" data-testid="back-link">Go Back to Main Page</a>
 </body>
 </html>
 `;
