@@ -7,7 +7,7 @@ The folder sections contain some instructions that will guide you getting the so
 - [NodeJs](./node/README.md)
 - [JMeter](./jmeter/README.md)
 - [k6](./k6/README.md)
-- [InfluxDB](./influxdb/README.md)
+- [InfluxDB](./influxdb/README.md)  (**PLEASE DOWNLOAD v1.X binaries. Avoid V2, V3 and installers**)
 - [Grafana](./grafana/README.md)
 - [Prometheus](./prometheus/README.md)
 
