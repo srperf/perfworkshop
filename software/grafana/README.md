@@ -1,8 +1,15 @@
 # Getting Grafana
 There are several ways to get Grafana locally in your computer.
+
+## Download Grafana
+
 To download it, go to https://grafana.com/grafana/download
 
-Select the steps adequate to your OS.
+Select the steps adequate to your OS and download the binaries.
+
+**For the workshop it is highly recommendable to download Grafana Binaries. Avoid installers.**
+
+## Docker option
 
 An easy way is to use docker.
 ```bash
